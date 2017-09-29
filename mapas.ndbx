@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="b393a8a8-3023-4d92-abd3-863c94a0dca1">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="import_csv1">
+        <node name="import_csv1" position="7.00,0.00" prototype="data.import_csv"/>
+        <node name="rect1" position="1.00,1.00" prototype="corevector.rect"/>
+    </node>
+</ndbx>
