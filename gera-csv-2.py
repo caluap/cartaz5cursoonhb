@@ -1,6 +1,6 @@
 from PIL import Image
 import numpy
-img=Image.open('mapa-al-peq-peq.png')
+img=Image.open('mapa2.png')
 imgarray=numpy.array(img)
 
 c_la = []
@@ -26,6 +26,6 @@ for y in range(len(imgarray)):
       c_sea.append((x+1,y+1))
 
 
-gera_csv("c_la.csv", c_la)
-gera_csv("c_world.csv", c_world)
-gera_csv("c_sea.csv", c_sea)
+gera_csv("c_la3.csv", c_la)
+gera_csv("c_world3.csv", c_world)
+gera_csv("c_sea3.csv", c_sea)

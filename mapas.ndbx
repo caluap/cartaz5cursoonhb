@@ -4,7 +4,7 @@
     <property name="canvasWidth" value="1000"/>
     <property name="canvasX" value="0"/>
     <property name="canvasY" value="0"/>
-    <node name="root" prototype="core.network" renderedChild="ellipse1">
+    <node name="root" prototype="core.network" renderedChild="concatenate1">
         <node name="LAT_AM" position="9.00,16.00" prototype="math.compare">
             <port name="comparator" type="string" value="=="/>
         </node>
@@ -40,7 +40,7 @@
             <port name="key" type="string" value="C2"/>
         </node>
         <node name="range1" position="2.00,4.00" prototype="math.range">
-            <port name="end" type="float" value="63.0"/>
+            <port name="end" type="float" value="64.0"/>
         </node>
         <conn input="integer1.value" output="range1"/>
         <conn input="ellipse1.position" output="grid1"/>
@@ -48,8 +48,8 @@
         <conn input="lookup1.list" output="import_csv1"/>
         <conn input="lookup1.key" output="concatenate1"/>
         <conn input="integer2.value" output="divide1"/>
-        <conn input="concatenate1.string2" output="integer2"/>
         <conn input="ellipse1.width" output="lookup1"/>
         <conn input="ellipse1.height" output="lookup1"/>
+        <conn input="concatenate1.string2" output="integer1"/>
     </node>
 </ndbx>

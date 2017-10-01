@@ -7,7 +7,7 @@
     <node name="root" prototype="core.network" renderedChild="scale1">
         <node name="LATAM" position="8.00,3.00" prototype="core.network" renderedChild="make_point1">
             <node name="import_csv1" position="1.00,-1.00" prototype="data.import_csv">
-                <port name="file" type="string" value="/Users/calua/Google Drive/Preface/Projetos/cristina meneguello/5º curso/processo/mapas-pra-que-te-quero/c_la.csv"/>
+                <port name="file" type="string" value="c_la.csv"/>
             </node>
             <node name="lookup1" position="1.00,1.00" prototype="data.lookup"/>
             <node name="lookup2" position="4.00,1.00" prototype="data.lookup">
@@ -19,7 +19,7 @@
             <node name="number1" position="8.00,1.00" prototype="math.number">
                 <port name="value" type="float" value="8.0"/>
             </node>
-            <port childReference="import_csv1.file" description="The CSV file." label="" name="file" range="value" type="string" value="/Users/calua/Google Drive/Preface/Projetos/cristina meneguello/5º curso/processo/mapas-pra-que-te-quero/c_la.csv" widget="file"/>
+            <port childReference="import_csv1.file" description="The CSV file." label="" name="file" range="value" type="string" value="c_la.csv" widget="file"/>
             <port childReference="number1.value" description="" label="" name="multiplicador" range="value" type="float" value="8.0" widget="float"/>
             <conn input="lookup1.list" output="import_csv1"/>
             <conn input="lookup2.list" output="import_csv1"/>
@@ -30,7 +30,7 @@
             <conn input="make_point1.x" output="multiply2"/>
             <conn input="make_point1.y" output="multiply1"/>
         </node>
-        <node name="MAR" position="5.00,3.00" prototype="core.network" renderedChild="make_point1">
+        <node name="MAR" position="-1.00,3.00" prototype="core.network" renderedChild="make_point1">
             <node name="import_csv1" position="1.00,-1.00" prototype="data.import_csv">
                 <port name="file" type="string" value="/Users/calua/Google Drive/Preface/Projetos/cristina meneguello/5º curso/processo/mapas-pra-que-te-quero/c_sea.csv"/>
             </node>
@@ -55,9 +55,9 @@
             <conn input="make_point1.x" output="multiply2"/>
             <conn input="make_point1.y" output="multiply1"/>
         </node>
-        <node name="MUNDO" position="11.00,3.00" prototype="core.network" renderedChild="make_point1">
+        <node name="MUNDO" position="2.00,3.00" prototype="core.network" renderedChild="make_point1">
             <node name="import_csv1" position="1.00,-1.00" prototype="data.import_csv">
-                <port name="file" type="string" value="/Users/calua/Google Drive/Preface/Projetos/cristina meneguello/5º curso/processo/mapas-pra-que-te-quero/c_world.csv"/>
+                <port name="file" type="string" value="c_world.csv"/>
             </node>
             <node name="lookup1" position="1.00,1.00" prototype="data.lookup"/>
             <node name="lookup2" position="4.00,1.00" prototype="data.lookup">
@@ -69,7 +69,7 @@
             <node name="number1" position="8.00,1.00" prototype="math.number">
                 <port name="value" type="float" value="2.0"/>
             </node>
-            <port childReference="import_csv1.file" description="The CSV file." label="" name="file" range="value" type="string" value="/Users/calua/Google Drive/Preface/Projetos/cristina meneguello/5º curso/processo/mapas-pra-que-te-quero/c_world.csv" widget="file"/>
+            <port childReference="import_csv1.file" description="The CSV file." label="" name="file" range="value" type="string" value="c_world.csv" widget="file"/>
             <port childReference="number1.value" description="" label="" name="multiplicador" range="value" type="float" value="2.0" widget="float"/>
             <conn input="lookup1.list" output="import_csv1"/>
             <conn input="lookup2.list" output="import_csv1"/>
@@ -80,51 +80,107 @@
             <conn input="make_point1.x" output="multiply2"/>
             <conn input="make_point1.y" output="multiply1"/>
         </node>
-        <node name="combine1" position="7.00,19.00" prototype="list.combine"/>
-        <node name="count1" position="14.00,9.00" prototype="list.count"/>
-        <node name="ellipse1" position="13.00,6.00" prototype="corevector.ellipse">
-            <port name="width" type="float" value="80.0"/>
-            <port name="height" type="float" value="80.0"/>
+        <node name="change_case1" position="15.00,4.00" prototype="string.change_case"/>
+        <node name="characters1" position="15.00,6.00" prototype="string.characters"/>
+        <node name="colorize1" position="14.00,17.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#ffffffff"/>
         </node>
-        <node name="import_svg1" position="-1.00,7.00" prototype="corevector.import_svg">
-            <port name="file" type="string" value="wave2.svg"/>
+        <node name="colorize2" position="8.00,17.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="3.0"/>
         </node>
-        <node name="integer1" position="14.00,11.00" prototype="math.integer"/>
-        <node name="multiply1" position="14.00,13.00" prototype="math.multiply">
-            <port name="value2" type="float" value="45.0"/>
+        <node name="colorize3" position="-1.00,11.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#fbfbfbff"/>
         </node>
-        <node name="number1" position="11.00,0.00" prototype="math.number">
+        <node name="colorize4" position="2.00,11.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00000000"/>
+            <port name="strokeWidth" type="float" value="2.0"/>
+        </node>
+        <node name="combine1" position="2.00,22.00" prototype="list.combine"/>
+        <node name="count1" position="8.00,8.00" prototype="list.count"/>
+        <node name="count2" position="19.00,8.00" prototype="list.count"/>
+        <node name="ellipse1" position="2.00,7.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="70.0"/>
+            <port name="height" type="float" value="70.0"/>
+        </node>
+        <node name="ellipse3" position="-1.00,7.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="70.0"/>
+            <port name="height" type="float" value="70.0"/>
+        </node>
+        <node name="integer1" position="8.00,11.00" prototype="math.integer"/>
+        <node name="integer2" position="19.00,11.00" prototype="math.integer"/>
+        <node name="multiply1" position="8.00,13.00" prototype="math.multiply">
+            <port name="value2" type="float" value="30.0"/>
+        </node>
+        <node name="multiply2" position="19.00,13.00" prototype="math.multiply">
+            <port name="value2" type="float" value="30.0"/>
+        </node>
+        <node name="number1" position="8.00,0.00" prototype="math.number">
             <port name="value" type="float" value="222.0"/>
         </node>
-        <node name="random_numbers1" position="14.00,10.00" prototype="math.random_numbers">
-            <port name="end" type="float" value="1.0"/>
+        <node name="random_numbers1" position="8.00,10.00" prototype="math.random_numbers">
+            <port name="end" type="float" value="2.0"/>
         </node>
-        <node name="rect1" position="7.00,7.00" prototype="corevector.rect">
-            <port name="width" type="float" value="160.0"/>
-            <port name="height" type="float" value="160.0"/>
+        <node name="random_numbers2" position="19.00,10.00" prototype="math.random_numbers">
+            <port name="end" type="float" value="2.0"/>
+        </node>
+        <node name="rect1" position="8.00,7.00" prototype="corevector.rect">
+            <port name="width" type="float" value="130.0"/>
+            <port name="height" type="float" value="130.0"/>
+        </node>
+        <node name="rect_size" position="10.00,5.00" prototype="math.number">
+            <port name="value" type="float" value="120.0"/>
         </node>
         <node name="rotate1" position="8.00,15.00" prototype="corevector.rotate"/>
-        <node name="scale1" position="-1.00,10.00" prototype="corevector.scale">
-            <port name="scale" type="point" value="21.50,45.50"/>
+        <node name="rotate2" position="15.00,20.00" prototype="corevector.rotate"/>
+        <node name="scale1" position="2.00,26.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="10.00,10.00"/>
         </node>
-        <node name="translate1" position="1.00,13.00" prototype="corevector.translate"/>
+        <node name="string1" position="15.00,3.00" prototype="string.string">
+            <port name="value" type="string" value="GêTupí–GuaraniWaraoIngaYukpaZenúWayúuMaiaMixeMixtecaNahuaZapotecoUto–AztecanChibchanGuaraniYaguaTicuna"/>
+        </node>
+        <node name="textpath1" position="14.00,13.00" prototype="corevector.textpath">
+            <port name="font_name" type="string" value="ProximaNova-Black"/>
+            <port name="font_size" type="float" value="83.0"/>
+        </node>
+        <node name="translate1" position="14.00,18.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="0.00,26.00"/>
+        </node>
+        <node name="wiggle1" position="12.00,23.00" prototype="corevector.wiggle"/>
         <conn input="ellipse1.position" output="MUNDO"/>
         <conn input="MUNDO.multiplicador" output="number1"/>
         <conn input="LATAM.multiplicador" output="number1"/>
         <conn input="MAR.multiplicador" output="number1"/>
-        <conn input="combine1.list3" output="ellipse1"/>
         <conn input="rect1.position" output="LATAM"/>
         <conn input="rotate1.shape" output="rect1"/>
         <conn input="count1.list" output="rect1"/>
         <conn input="random_numbers1.amount" output="count1"/>
-        <conn input="combine1.list2" output="rotate1"/>
         <conn input="rotate1.origin" output="LATAM"/>
         <conn input="integer1.value" output="random_numbers1"/>
         <conn input="multiply1.value1" output="integer1"/>
+        <conn input="combine1.list6" output="colorize2"/>
         <conn input="rotate1.angle" output="multiply1"/>
-        <conn input="scale1.shape" output="import_svg1"/>
-        <conn input="translate1.shape" output="scale1"/>
-        <conn input="translate1.translate" output="MAR"/>
-        <conn input="combine1.list1" output="translate1"/>
+        <conn input="ellipse3.position" output="MAR"/>
+        <conn input="colorize3.shape" output="ellipse3"/>
+        <conn input="combine1.list2" output="colorize3"/>
+        <conn input="colorize2.shape" output="rotate1"/>
+        <conn input="rect1.width" output="rect_size"/>
+        <conn input="rect1.height" output="rect_size"/>
+        <conn input="textpath1.text" output="characters1"/>
+        <conn input="textpath1.position" output="LATAM"/>
+        <conn input="characters1.string" output="change_case1"/>
+        <conn input="change_case1.string" output="string1"/>
+        <conn input="translate1.shape" output="colorize1"/>
+        <conn input="count2.list" output="rect1"/>
+        <conn input="random_numbers2.amount" output="count2"/>
+        <conn input="rotate2.origin" output="LATAM"/>
+        <conn input="integer2.value" output="random_numbers2"/>
+        <conn input="multiply2.value1" output="integer2"/>
+        <conn input="rotate2.angle" output="multiply2"/>
+        <conn input="colorize1.shape" output="textpath1"/>
+        <conn input="combine1.list7" output="rotate2"/>
+        <conn input="rotate2.shape" output="translate1"/>
+        <conn input="combine1.list3" output="colorize4"/>
+        <conn input="colorize4.shape" output="ellipse1"/>
+        <conn input="scale1.shape" output="combine1"/>
     </node>
 </ndbx>
